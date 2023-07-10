@@ -4,7 +4,7 @@
 }
 @font-face {
   font-family: "StratosSkyeng";
-  src: url("./statosskyeng-v1.001/\ fonts/stratosskyengweb-regular.woff2") format("woff2");
+  src: url("./fonts/stratosskyengweb-regular.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;     
@@ -20,7 +20,7 @@
   align-items: center;
   justify-content: center;
 }
-.header__nav{
+.header__form{
   width: 480px;
   height: 459px;
   box-sizing: border-box;
@@ -43,14 +43,6 @@
   text-align: center;
   max-width: 271px;
   
-}
-.prod_checbox strong {
- font-style: normal;
-  font-weight: 400;
-  font-size: 40px;
-  line-height: 48px;
-  color: #004980; 
-  display: inline;
 }
 
 .radio-toolbar input[type="radio"] {
@@ -83,11 +75,11 @@ border: 1px solid #d0ffb7;
 }
 
 .radio-toolbar label:hover {
-background-color: #7AC100;;
+background-color: #7AC100;
 border: 1px solid #d0ffb7;
 
 }
-.nav__input{
+.nav__button{
 width: 246px;
 height: 50px;
 display: block;
@@ -95,13 +87,10 @@ box-sizing: border-box;
 border: 1px solid #7AC100;
 border-radius: 12px;
 background-color: #7AC100;
-text-decoration-line: none;
 font-family: StratosSkyeng; 
 font-style: normal;
 font-weight: 400;
 font-size: 24px;
 line-height: 32px;
 color: #FFFFFF;
-padding-left: 85px;
-padding-top: 5px;
 }
