@@ -2,6 +2,7 @@
   "extends": ["stylelint-config-standard", "stylelint-prettier/recommended"],
   "plugins": ["stylelint-prettier"],
   "rules": {
+    "selector-class-pattern": null,
     "prettier/prettier": true,
     "font-family-no-missing-generic-family-keyword": [
       true,
@@ -9,5 +10,6 @@
         "ignoreFontFamilies": ["Stratos"]
       }
     ]
+    
   }
 }

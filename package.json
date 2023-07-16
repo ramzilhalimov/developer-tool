@@ -1,29 +1,29 @@
 {
-  "name": "developer-tool",
-  "version": "1.0.0",
-  "description": "tool",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "format": "prettier —write .",
-    "lint:js": "eslint ./components/**/*.js",
-    "lint:css": "stylelint '.css/**/*.css'",
-    "lint": "npm run lint:js && npm run lint:css",
-    "prepare": "husky install"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "lodash": "^4.17.21"
-  },
-  "devDependencies": {
-    "eslint": "^8.45.0",
-    "eslint-config-prettier": "^8.8.0",
-    "eslint-plugin-prettier": "^5.0.0",
-    "husky": "^8.0.3",
-    "prettier": "^3.0.0",
-    "stylelint": "^15.10.1",
-    "stylelint-config-standard": "^34.0.0",
-    "stylelint-prettier": "^4.0.0"
-}
+    "name": "developer-tool",
+    "version": "1.0.0",
+    "description": "tool",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "format": "prettier —write .",
+        "lint:js": "eslint ./components/**/*.js",
+        "lint:css": "stylelint './**/*.css'",
+        "lint": "npm run lint:js && npm run lint:css",
+        "prepare": "husky install"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "lodash": "^4.17.21"
+    },
+    "devDependencies": {
+        "eslint": "^8.45.0",
+        "eslint-config-prettier": "^8.8.0",
+        "eslint-plugin-prettier": "^5.0.0",
+        "husky": "^8.0.3",
+        "prettier": "^3.0.0",
+        "stylelint": "^15.10.1",
+        "stylelint-config-standard": "^34.0.0",
+        "stylelint-prettier": "^4.0.0"
+    }
 }
