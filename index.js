@@ -1,3 +1,3 @@
-import { renderRadioComponents } from "./components/level-game-pages.js";
+import { renderRadioComponents } from './components/level-game-pages.js'
 
-renderRadioComponents();
+renderRadioComponents()
