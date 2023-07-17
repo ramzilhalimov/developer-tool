@@ -25,13 +25,9 @@ export function initRenderLevelGame(difficulty) {
     app.innerHTML = appHtml
 
     const cardElements = document.querySelectorAll('.card')
-    const front = document.querySelector('.card__front')
 
     cardElements.forEach((card) => {
         card.addEventListener('click', flipCard)
-        if (front === front) {
-            console.log('карты одинаковые')
-        }
     })
 
     memoryTimeoutId = setTimeout(() => {
@@ -76,8 +72,8 @@ export function initRenderLevelGame(difficulty) {
         for (let i = 0; i < shuffledCards.length; i++) {
             const card = shuffledCards[i]
             const cardHtml = `
-    <div  class="card">
-      <div data-name="${card.name}" class="card__back">
+    <div data-name="${card.name}"  class="card">
+      <div  class="card__back">
         <img src="${card.front}" alt="">
       </div>
       <div class="card__front">
@@ -119,5 +115,31 @@ function getNumCards(difficulty) {
 }
 
 function flipCard(event) {
-    event.currentTarget.classList.toggle('flipped')
+    const currentCard = event.currentTarget
+
+    if (
+        currentCard.classList.contains('flipped') ||
+        document.querySelectorAll('.flipped').length === 2
+    ) {
+        return
+    }
+
+    currentCard.classList.toggle('flipped')
+
+    const flippedCards = document.querySelectorAll('.flipped')
+
+    if (flippedCards.length === 2) {
+        const flippedCard1 = flippedCards[0]
+        const flippedCard2 = flippedCards[1]
+
+        if (flippedCard1.dataset.cardName === flippedCard2.dataset.cardName) {
+            alert('Вы победили!')
+        } else {
+            setTimeout(() => {
+                flippedCards.forEach((card) => {
+                    card.classList.toggle('flipped', false)
+                })
+            }, 1000)
+        }
+    }
 }
