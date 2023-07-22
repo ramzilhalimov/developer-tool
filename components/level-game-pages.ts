@@ -1,7 +1,7 @@
-import { initRenderLevelGame } from './page-game-level.js'
+import { initRenderLevelGame } from './page-game-level'
 
 export function renderRadioComponents() {
-    const app = document.getElementById('app')
+    const app = document.getElementById('app') as HTMLInputElement
     const appHtml = `
 <header class="header center">
 <form class="header__form ">
@@ -34,7 +34,9 @@ export function renderRadioComponents() {
         '.radio-toolbar input[name="difficulty"]',
     )
 
-    const gameButton = document.getElementById('game-button')
+    const gameButton = document.getElementById(
+        'game-button',
+    ) as HTMLInputElement
 
     function levelNumCards() {
         switch (levelData.difficulty) {
@@ -52,7 +54,7 @@ export function renderRadioComponents() {
 
     difficultyInputs.forEach((input) => {
         input.addEventListener('change', () => {
-            levelData.difficulty = input.value
+            levelData.difficulty = (input as HTMLInputElement).value
             levelNumCards()
         })
     })
@@ -61,7 +63,7 @@ export function renderRadioComponents() {
         levelGame(levelData.difficulty)
     })
 
-    function levelGame(difficulty) {
+    function levelGame(difficulty: string) {
         initRenderLevelGame(difficulty)
     }
 }
