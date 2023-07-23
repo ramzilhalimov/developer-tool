@@ -8,7 +8,7 @@
         "format": "prettier —write .",
         "lint:js": "eslint ./components/**/*.js",
         "lint:css": "stylelint './**/*.css'",
-        "lint": "eslint" ,
+        "lint": "eslint",
         "prepare": "husky install",
         "build": "NODE_ENV=production webpack",
         "start": "webpack-dev-server --open",
@@ -20,6 +20,8 @@
         "lodash": "^4.17.21"
     },
     "devDependencies": {
+        "@typescript-eslint/eslint-plugin": "^6.1.0",
+        "@typescript-eslint/parser": "^6.1.0",
         "copy-webpack-plugin": "^11.0.0",
         "css-loader": "^6.8.1",
         "css-minimizer-webpack-plugin": "^5.0.1",

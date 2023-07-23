@@ -3,8 +3,7 @@ import { renderRadioComponents } from './level-game-pages'
 
 export function initRenderLevelGame(difficulty: string) {
     const app = document.getElementById('app') as HTMLInputElement
-    let memoryTimeoutId: ReturnType<typeof setTimeout>
-    let formattedTime: ReturnType<typeof setTimeout>
+    // let formattedTime: string
     const shuffledCards = shuffle([...cards, ...cards])
     const appHtml = `
     <div class="top-container center">
@@ -30,11 +29,11 @@ export function initRenderLevelGame(difficulty: string) {
 
     cardElements.forEach((card) => {
         card.addEventListener('click', (event) =>
-            flipCard(event, timerInterval, formattedTime),
+            flipCard(event, timerInterval),
         )
     })
 
-    memoryTimeoutId = setTimeout(() => {
+    const memoryTimeoutId: ReturnType<typeof setTimeout> = setTimeout(() => {
         cardElements.forEach((card) => {
             card.classList.remove('flipped')
         })
@@ -69,13 +68,19 @@ export function initRenderLevelGame(difficulty: string) {
         })
         initRenderLevelGame(difficulty)
     })
+    interface Card {
+        name: string
+        front: string
+        back: string
+    }
 
-    function renderCards(difficulty: string, cards: Array<string>) {
+    function renderCards(difficulty: string, cards: Card[]) {
         const numCards = getNumCards(difficulty) * 2
         const selectedCards = cards.slice(0, Math.floor(numCards / 2))
         const duplicatedCards = [...selectedCards, ...selectedCards]
-        const shuffledCards = shuffle(duplicatedCards)
+        const shuffledCards: Card[] = shuffle(duplicatedCards)
         let cardsHtml = ''
+
         for (let i = 0; i < shuffledCards.length; i++) {
             const card = shuffledCards[i]
             const cardHtml = `
@@ -94,7 +99,7 @@ export function initRenderLevelGame(difficulty: string) {
     }
 }
 
-function shuffle(array: Array<any>) {
+function shuffle<T>(array: Array<T>): Array<T> {
     let currentIndex = array.length,
         randomIndex
     while (currentIndex !== 0) {
@@ -120,22 +125,23 @@ function getNumCards(difficulty: string) {
             return 6
     }
 }
+interface CardElement extends HTMLElement {
+    isMatched: boolean
+}
 
-let currentCard: any = null
-let previousCard: any = null
+let currentCard: CardElement | null = null
+let previousCard: CardElement | null = null
 let isFlippingCards: boolean = false
-let gameResult
 
 function flipCard(
-    event: any,
-    timerInterval:  ReturnType<typeof setTimeout>,
-    formattedTime: ReturnType<typeof setTimeout>,
+    event: Event,
+    timerInterval: ReturnType<typeof setTimeout>,
+    // formattedTime: string,
 ) {
-     if (isFlippingCards) {
-        // Игнорируем клики, если уже переворачиваем карты
+    if (isFlippingCards) {
         return
     }
-    const card = event.currentTarget
+    const card = event.currentTarget as CardElement
 
     if (card.classList.contains('flipped')) {
         return
@@ -147,10 +153,15 @@ function flipCard(
         previousCard = card
         card.classList.toggle('flipped')
         isFlippingCards = true
-        const currentCardFront =
-            currentCard.querySelector('.card__front img').src
-        const previousCardFront =
-            previousCard.querySelector('.card__front img').src
+        const currentCardFront = currentCard
+            .querySelector('.card__front img')
+            ?.getAttribute('src')
+
+        const previousCardFront = previousCard
+            .querySelector('.card__front img')
+
+            ?.getAttribute('src')
+
         if (currentCardFront === previousCardFront) {
             currentCard.isMatched = true
             previousCard.isMatched = true
@@ -160,26 +171,31 @@ function flipCard(
                 .call(allCards)
                 .every((card) => card.isMatched)
             if (allMatched) {
-                gameResult = true
-                let formattedTime =
+                // gameResult = true
+                const formattedTime =
                     document.querySelector('.head__time')?.textContent
                 clearInterval(timerInterval)
-                renderWinPage(formattedTime, true)
+                if (formattedTime) {
+                    renderWinPage(formattedTime, true)
+                }
             }
 
             currentCard = null
             previousCard = null
             isFlippingCards = false
         } else {
-            gameResult = false
-            let formattedTime =
+            // gameResult = false
+            const formattedTime =
                 document.querySelector('.head__time')?.textContent
             clearInterval(timerInterval)
-            renderWinPage(formattedTime, false)
+            if (formattedTime) {
+                renderWinPage(formattedTime, true)
+            }
             setTimeout(() => {
                 clearInterval(timerInterval)
-                currentCard.classList.remove('flipped')
-                previousCard.classList.remove('flipped')
+                // currentCard.classList.remove('flipped')
+
+                // previousCard.classList.remove('flipped')
                 currentCard = null
                 previousCard = null
                 isFlippingCards = false
@@ -188,7 +204,7 @@ function flipCard(
     }
 }
 
-function renderWinPage(formattedTime: any, gameResult: boolean) {
+function renderWinPage(formattedTime: string, gameResult: boolean) {
     const app = document.querySelector('#app') as HTMLInputElement
     const winPageHtml = `
     <div class="fin__page">
