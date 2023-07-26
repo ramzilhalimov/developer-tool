@@ -53,7 +53,7 @@ body {
     justify-content: center;
 }
 
-.nav__name {
+.header__name {
     font-family: StratosSkyeng, sans-serif;
     font-style: normal;
     font-weight: 400;
@@ -64,11 +64,11 @@ body {
     max-width: 271px;
 }
 
-.radio-toolbar input[type='radio'] {
+.header__toolbar input[type='radio'] {
     display: none;
 }
 
-.radio-toolbar label {
+.header__toolbar label {
     display: inline-flex;
     width: 98px;
     height: 98px;
@@ -88,17 +88,17 @@ body {
     margin-left: 23px;
 }
 
-.radio-toolbar label:hover {
+.header__toolbar label:hover {
     background-color: #7ac100;
     border: 1px solid #d0ffb7;
 }
 
-.radio-toolbar input[type='radio']:checked + label {
+.header__toolbar input[type='radio']:checked + label {
     background-color: #7ac100;
     border: 1px solid #d0ffb7;
 }
 
-.nav__button {
+.header__button {
     width: 246px;
     height: 50px;
     display: block;
@@ -198,7 +198,7 @@ body {
     background: #76db82 !important;
 }
 
-.fin__page {
+.fin__game {
     background: url('./dist/static/image/3.jpg') no-repeat center;
     background-blend-mode: multiply;
     background-color: rgb(0 0 0 40%);
@@ -215,7 +215,7 @@ body {
     background-color: rgb(0 0 0 40%);
 }
 
-.window__fin_game {
+.fin__game-container {
     height: 100vh;
     display: flex;
     justify-content: space-around;
@@ -223,7 +223,7 @@ body {
     flex-wrap: wrap;
 }
 
-.window__fin_game2 {
+.fin__game-nav {
     width: 480px;
     height: 459px;
     background-color: #c2f5ff;
@@ -233,7 +233,7 @@ body {
     align-items: center;
 }
 
-.window__fin_imgwin {
+.fin__game_imgwin {
     margin-top: 26px;
     width: 96px;
     height: 96px;
@@ -241,7 +241,7 @@ body {
     background-image: url('./dist/static/image/Image.png');
 }
 
-.window__fin_imgconq {
+.fin__game_imgconq {
     margin-top: 32px;
     width: 96px;
     height: 96px;
@@ -249,14 +249,14 @@ body {
     background-image: url('./dist/static/image/dead.png');
 }
 
-.window__fin_tex {
+.fin__game_tex {
     display: flex;
     flex-direction: column;
     align-content: flex-start;
     align-items: center;
 }
 
-.window__fin_text {
+.fin__game_text {
     margin-top: 8px;
     font-family: StratosSkyeng, sans-serif;
     font-size: 40px;
@@ -266,7 +266,7 @@ body {
     color: #004980;
 }
 
-.window__fin_text2 {
+.fin__game_text2 {
     margin-top: 28px;
     color: #000;
     font-family: StratosSkyeng, sans-serif;
@@ -276,7 +276,7 @@ body {
     line-height: 32px;
 }
 
-.window__fin_time {
+.fin__game_time {
     margin-top: 10px;
     color: #000;
     font-family: StratosSkyeng, sans-serif;

@@ -14,7 +14,7 @@ export function initRenderLevelGame(difficulty: string) {
           </div> 
           <div class="head"> 
           <span class="head__time" id="seconds">00.00</span>
-          <button id="start-button" class="nav__button">Начать заново</button>
+          <button id="start-button" class="header__button">Начать заново</button>
           </div> 
           </header>
     <div id="card" class="cards">
@@ -207,25 +207,25 @@ function flipCard(
 function renderWinPage(formattedTime: string, gameResult: boolean) {
     const app = document.querySelector('#app') as HTMLInputElement
     const winPageHtml = `
-    <div class="fin__page">
-        <div class="window__fin_game">
-            <div class="window__fin_game2">
+    <div class="fin__game">
+        <div class="fin__game-container">
+            <div class="fin__game-nav">
                 ${
                     gameResult
-                        ? '<span class="window__fin_imgwin"></span>'
-                        : '<span class="window__fin_imgconq"></span>'
+                        ? '<span class="fin__game_imgwin"></span>'
+                        : '<span class="fin__game_imgconq"></span>'
                 }
-                <div class="window__fin_"> 
-                    <p class="window__fin_text">${
+                <div class="fin__game_window"> 
+                    <p class="fin__game_text">${
                         gameResult ? 'Вы выиграли!' : 'Вы проиграли!'
                     }</p>
                 </div> 
-                <div class="window__fin_tex"> 
-                    <p class="window__fin_text2">Затраченное время:</p>
+                <div class="fin__game_tex"> 
+                    <p class="fin__game_text2">Затраченное время:</p>
                     <div>
-                    <p class="window__fin_time">${formattedTime}</p>  
+                    <p class="fin__game_time">${formattedTime}</p>  
                 </div>          
-                    <button id="restart-button" class="nav__button">Играть снова</button>
+                    <button id="restart-button" class="header__button">Играть снова</button>
                 </div>
             </div>
         </div>
