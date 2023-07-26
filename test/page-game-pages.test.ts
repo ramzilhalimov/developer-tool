@@ -3,14 +3,23 @@ import { it, expect } from '@jest/globals'
 
 describe('getNumCards()', () => {
     it('should return 6 for easy difficulty', () => {
-        let line = 'easy'
-        let expected = 6
+        // const line = 'easy'
+        const expected = 6
 
-        let result = 6
+        const result = 6
 
         expect(expected).toBe(result)
     })
 })
+it('should return 12 for medium difficulty', () => {
+    const difficulty = 'medium'
+    const expected = 12
+
+    const result = getNumCards(difficulty)
+
+    expect(expected).toBe(result)
+})
+
 describe('shuffle()', () => {
     it('should shuffle the cards', () => {
         const array = ['1', '2', '3', '4']
@@ -18,10 +27,9 @@ describe('shuffle()', () => {
         expect(shuffledArray).toHaveLength(array.length)
     })
 })
-describe ('shuffle()', () => {
-  it('should shuffle the cards', () => {
-  
-    const expected = ['array']
-    expect(['array']).toEqual(expect.arrayContaining(expected));
-  })
+describe('shuffle()', () => {
+    it('should shuffle the cards', () => {
+        const expected = ['array']
+        expect(['array']).toEqual(expect.arrayContaining(expected))
+    })
 })
