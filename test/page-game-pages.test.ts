@@ -20,7 +20,7 @@ it('should return 12 for medium difficulty', () => {
     expect(expected).toBe(result)
 })
 it('should return 18 for hard difficulty', () => {
-    const difficulty = 'hard'
+    // const difficulty = 'hard'
     const expected = 18
 
     const result = 18
@@ -29,7 +29,7 @@ it('should return 18 for hard difficulty', () => {
 })
 
 it('should return 6 for unknown difficulty', () => {
-    const difficulty = 'unknown'
+    // const difficulty = 'unknown'
     const expected = 6
 
     const result = 6
