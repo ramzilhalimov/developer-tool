@@ -179,20 +179,20 @@ body {
     }
 
     &__front {
-        transform: rotateY(0deg);
+        transform: rotateY(180deg);
     }
 
     &__back {
-        transform: rotateY(180deg);
+        transform: rotateY(0deg);
     }
 }
 
 .card.flipped .card__front {
-    transform: rotateY(-180deg);
+    transform: rotateY(0deg);
 }
 
 .card.flipped .card__back {
-    transform: rotateY(0deg);
+    transform: rotateY(-180deg);
 }
 
 .card.successfully {

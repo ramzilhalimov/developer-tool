@@ -85,10 +85,10 @@ export function initRenderLevelGame(difficulty: string) {
             const card = shuffledCards[i]
             const cardHtml = `
     <div data-card-name="${card.name}" class="card">
-      <div  class="card__back">
+      <div  class="card__front">
         <img src="${card.front}" alt="">
       </div>
-      <div class="card__front">
+      <div class="card__back">
         <img src="${card.back}" alt="">
       </div>
     </div>
@@ -167,11 +167,10 @@ function flipCard(
             previousCard.isMatched = true
 
             const allCards = document.querySelectorAll('.card')
-            const allMatched = Array.prototype.slice
-                .call(allCards)
-                .every((card) => card.isMatched)
+            const allMatched = Array.prototype.slice.call(allCards).every
+            ((card) => card.isMatched)
+
             if (allMatched) {
-                // gameResult = true
                 const formattedTime =
                     document.querySelector('.head__time')?.textContent
                 clearInterval(timerInterval)
@@ -184,12 +183,11 @@ function flipCard(
             previousCard = null
             isFlippingCards = false
         } else {
-            // gameResult = false
             const formattedTime =
                 document.querySelector('.head__time')?.textContent
             clearInterval(timerInterval)
             if (formattedTime) {
-                renderWinPage(formattedTime, true)
+                renderWinPage(formattedTime, false)
             }
             setTimeout(() => {
                 clearInterval(timerInterval)
