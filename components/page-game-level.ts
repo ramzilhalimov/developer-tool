@@ -167,8 +167,9 @@ function flipCard(
             previousCard.isMatched = true
 
             const allCards = document.querySelectorAll('.card')
-            const allMatched = Array.prototype.slice.call(allCards).every
-            ((card) => card.isMatched)
+            const allMatched = Array.prototype.slice
+                .call(allCards)
+                .every((card) => card.isMatched)
 
             if (allMatched) {
                 const formattedTime =
