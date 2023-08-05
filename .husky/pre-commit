@@ -1,4 +1,8 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-npm run lint
+npm run lint:css
+npm run lint:ts
+npm run test
+# npm run lint:js
+npm run lint:scss

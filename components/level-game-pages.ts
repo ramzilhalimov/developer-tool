@@ -5,10 +5,10 @@ export function renderRadioComponents() {
     const appHtml = `
 <header class="header center">
 <form class="header__form ">
-    <h1 class="nav__name">
+    <h1 class="header__name">
         Выбери сложность
     </h1>
-        <div class="radio-toolbar"> 
+        <div class="header__toolbar"> 
             <input type="radio" id="radio1" name="difficulty" value="easy">
             <label for="radio1">1</label>
             
@@ -18,7 +18,7 @@ export function renderRadioComponents() {
             <input type="radio" id="radio3" name="difficulty" value="hard">
             <label for="radio3">3</label>
         </div> 
-    <button id="game-button" class="nav__button">Старт</button>
+    <button id="game-button" class="header__button">Старт</button>
 </form>
 </header>
 `
@@ -31,7 +31,7 @@ export function renderRadioComponents() {
     }
 
     const difficultyInputs = document.querySelectorAll(
-        '.radio-toolbar input[name="difficulty"]',
+        '.header__toolbar input[name="difficulty"]',
     )
 
     const gameButton = document.getElementById(
